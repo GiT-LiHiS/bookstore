@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <style>
+    	.container {
+    	margin-top: 25px;	
+    	padding-bottom: 25px;
+    	padding-top: 25px;
+    	border-radius: 20px 20px;
+    	 background-color: white;
+	    	
+    	}
+    	
+    	body {
+    	background-image: url("https://stmed.net/sites/default/files/book-wallpapers-28442-7602008.jpg");
+    	background-repeat: no-repeat;
+    	 background-size: cover;
+			    	
+    	}
+    	
+    	td {
+    	background-color: white;
+	    	}
+	    th {
+	    background-color: white;
+	    
+	    }	
+    
+    </style>
+</head>
+<body>
+	<div class="container">
+	<h1>Bookstore!</h1>
+    <table class="table table-striped">
+    <tbody>
+    <tr>
+    	<th>Tittle</th>
+    	<th>Author</th>
+    	<th>Year</th>
+    	<th>Price</th>
+    	<th>Category</th>
+        <th>Delete</th>
+        <th>Update</th>
+  	</tr>
+			<tr th:each ="book : ${books}">
+			<td th:text="${book.tittle}"></td>
+			<td th:text="${book.author}"></td>
+			<td th:text="${book.year}"></td>
+			<td th:text="${book.price}"></td>
+			<td th:text="${book.category.name}"></td> 		
+			<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td> 
+			<td><a class="btn btn-primary" th:href="@{/edit/{id}(id=${book.id})}">Update</a></td> 
+			</tr>	    
+    
+    </tbody>
+    </table>
+    <a class="btn btn-success" href="/add">Add Book</a>   
+    </div>
+</body>
+</html>
