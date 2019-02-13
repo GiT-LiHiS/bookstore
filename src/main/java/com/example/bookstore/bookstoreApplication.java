@@ -11,8 +11,6 @@ import com.example.bookstore.domain.Category;
 import com.example.bookstore.domain.CategoryRepository;
 
 @SpringBootApplication
-
-
 public class bookstoreApplication {
 
 	public static void main(String[] args) {
